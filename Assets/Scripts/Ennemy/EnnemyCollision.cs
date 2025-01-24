@@ -8,5 +8,9 @@ public class EnnemyCollision : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collision.gameObject.name == "Bubble")
+        {
+            print("PERDU");
+        }
     }
 }

@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class EnnemyMovements : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] float speed = 50.0f;
+    [SerializeField] float speed = 100.0f;
 
+    Transform target;
     Rigidbody2D ennemy;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.Find("Bubble").transform;
         ennemy = GetComponent<Rigidbody2D>();
     }
 
@@ -20,6 +21,7 @@ public class EnnemyMovements : MonoBehaviour
         transform.up = target.position - transform.position;
 
         Vector2 movement = target.position - transform.position;
+        movement.Normalize();
         ennemy.velocity = speed * Time.deltaTime * movement;
     }
 }
