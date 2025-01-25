@@ -34,8 +34,8 @@ public class EnemyCollision : MonoBehaviour
         GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone");
         foreach (GameObject clone in clones)
         {
-            if (clone != gameObject)
-                Destroy(clone);
+            clone.GetComponent<SpriteRenderer>().enabled = false;
+            clone.GetComponent<Collider2D>().enabled = false;
         }
 
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
