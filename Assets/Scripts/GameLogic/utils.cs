@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Helpers : MonoBehaviour
@@ -22,17 +23,10 @@ public class Helpers : MonoBehaviour
         return position;
     }
 
-    public static Object GetRandomObject(Object triangle, Object chargingTriangle)
+    public static Object GetRandomObject(List<Object> availableEnemies)
     {
-        int cases = Mathf.FloorToInt(Random.Range(0, 2));
+        int enemyIndex = Mathf.FloorToInt(Random.Range(0, availableEnemies.Count));
 
-        Object enemy = cases switch
-        {
-            0 => triangle,
-            1 => chargingTriangle,
-            _ => triangle,
-        };
-
-        return enemy;
+        return availableEnemies[enemyIndex];
     }
 }

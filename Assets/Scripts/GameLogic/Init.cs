@@ -25,12 +25,7 @@ public class Init : MonoBehaviour
 
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Tab))
-        // {
-        //     GameData.isShopOpen = !GameData.isShopOpen;
-        // }
-
-        if (Input.GetKeyDown(KeyCode.A) && GameData.money >= 10)
+        if (Input.GetKeyDown(KeyCode.E) && GameData.money >= 10)
         {
             GameData.money -= 10;
             GameData.sawDuration += 5.0f;
