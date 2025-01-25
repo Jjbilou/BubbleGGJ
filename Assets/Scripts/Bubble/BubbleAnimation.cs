@@ -6,7 +6,7 @@ public class BubbleAnimation : MonoBehaviour
     float defaultScaleY;
 
     void Start()
-    {
+    {   
         defaultScaleX = transform.localScale.x;
         defaultScaleY = transform.localScale.y;
     }

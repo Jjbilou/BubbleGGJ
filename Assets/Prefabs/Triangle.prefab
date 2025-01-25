@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6772562111196269364}
   - component: {fileID: 8358042863875822953}
   - component: {fileID: 1459896124695509085}
-  - component: {fileID: 9173823523090612414}
+  - component: {fileID: 2593752980687130301}
   - component: {fileID: 2669630782012774625}
   - component: {fileID: 5449864105130427133}
   m_Layer: 7
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 8651504071613187835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -351658473, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,8 +115,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &9173823523090612414
-PolygonCollider2D:
+--- !u!70 &2593752980687130301
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,22 +147,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0, y: -0.01}
+  m_Size: {x: 0.45, y: 0.58}
+  m_Direction: 0
 --- !u!114 &2669630782012774625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d55303dbaa33a4891e648661a41c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 100
+  frontSprite: {fileID: -351658473, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  backSprite: {fileID: -1003816543, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  rightSprite: {fileID: -1163993279, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  leftSprite: {fileID: 1917776937, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
 --- !u!114 &5449864105130427133
 MonoBehaviour:
   m_ObjectHideFlags: 0

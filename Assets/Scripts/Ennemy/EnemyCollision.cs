@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnnemyCollision : MonoBehaviour
+public class EnemyCollision : MonoBehaviour
 {
     [SerializeField]
     int moneyDrop;
