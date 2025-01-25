@@ -16,7 +16,6 @@ public class EnemyCollision : MonoBehaviour
     private Collider2D body;
     private bool isGameEnd;
 
-
     void Start()
     {
         swordSwipe = GameObject.Find("SwordSwipe");
@@ -66,7 +65,6 @@ public class EnemyCollision : MonoBehaviour
         spriteRendererSword.enabled = false;
         Destroy(gameObject);
     }
-    
 
     IEnumerator EndGame()
     {

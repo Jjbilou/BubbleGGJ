@@ -5,14 +5,12 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     [SerializeField]
-    Object triangle;
-
-    [SerializeField]
-    Object chargingTriangle;
+    Object[] enemies;
 
     readonly float xRadius = 18.5f;
     readonly float yRadius = 10.5f;
-    readonly float minSpawnInterval = 0.5f;
+    readonly float minSpawnInterval = 1.0f;
+    readonly int stepSize = 30;
     readonly List<Object> availableEnemies = new();
 
     float spawnInterval;
@@ -21,16 +19,21 @@ public class SpawnEnemies : MonoBehaviour
     void Start()
     {
         spawnInterval = 5.0f;
-        availableEnemies.Add(triangle);
+        availableEnemies.Add(enemies[0]);
 
         gameCoroutine = StartCoroutine(SpawnEnemy());
     }
 
     void Update()
     {
-        if (GameData.score >= 30 && !availableEnemies.Contains(chargingTriangle))
+        if (
+            GameData.score % stepSize == 0
+            && availableEnemies.Count < enemies.Length
+            && GameData.score != 0
+        )
         {
-            availableEnemies.Add(chargingTriangle);
+            spawnInterval = 5.0f;
+            availableEnemies.Add(enemies[GameData.score / stepSize]);
         }
     }
 

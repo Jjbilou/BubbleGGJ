@@ -33,7 +33,7 @@ public class ChargingEnemyMovements : MonoBehaviour
     {
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
         isCharging = false;
     }

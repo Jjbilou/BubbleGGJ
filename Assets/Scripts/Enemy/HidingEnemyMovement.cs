@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovements : MonoBehaviour
+public class HidingEnemyMovement : MonoBehaviour
 {
     [SerializeField]
     float speed = 50.0f;
@@ -21,12 +23,17 @@ public class EnemyMovements : MonoBehaviour
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
 
+    bool isWaiting;
+    bool isWalking;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        isWaiting = false;
+        isWalking = false;
     }
 
     // Update is called once per frame
@@ -36,11 +43,45 @@ public class EnemyMovements : MonoBehaviour
         Animate();
     }
 
+    IEnumerator WaitAndShow()
+    {
+        while (spriteRenderer.color.a != 1.0f)
+        {
+            spriteRenderer.color = new Color(
+                spriteRenderer.color.r,
+                spriteRenderer.color.g,
+                spriteRenderer.color.b,
+                Mathf.Min(spriteRenderer.color.a + 0.05f, 1.0f)
+            );
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        isWaiting = false;
+        isWalking = true;
+    }
+
     void Move()
     {
         Vector2 movement = target.position - transform.position;
         movement.Normalize();
-        enemy.velocity = speed * Time.deltaTime * movement;
+
+        if (!isWaiting)
+        {
+            if (!isWalking && Vector2.Distance(transform.position, target.position) <= 4.0f)
+            {
+                isWaiting = true;
+                StartCoroutine(WaitAndShow());
+            }
+
+            enemy.velocity = (isWalking ? 1.0f : 5.0f) * speed * Time.deltaTime * movement;
+        }
+        else
+        {
+            enemy.velocity = Vector3.zero;
+        }
     }
 
     void Animate()
