@@ -25,8 +25,8 @@ public class ChargingEnemyMovements : MonoBehaviour
     bool isWaiting;
     bool isCharging;
 
-    readonly float xRadius = 8.5f;
-    readonly float yRadius = 4.5f;
+    readonly float xRadius = 17f;
+    readonly float yRadius = 9.5f;
 
     // Start is called before the first frame update
     void Start()

@@ -9,8 +9,8 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField]
     Object chargingTriangle;
 
-    readonly float xRadius = 9.5f;
-    readonly float yRadius = 5.5f;
+    readonly float xRadius = 18.5f;
+    readonly float yRadius = 10.5f;
     readonly float minSpawnInterval = 0.5f;
 
     float spawnInterval;
