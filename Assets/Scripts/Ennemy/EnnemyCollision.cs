@@ -13,6 +13,15 @@ public class EnnemyCollision : MonoBehaviour
         else if (collision.gameObject.name == "Bubble")
         {
             StopCoroutine(gameCoroutine);
+
+            CountScore countScore = GameObject.Find("Score").GetComponent<CountScore>();
+            StopCoroutine(countScore.scoreCoroutine);
+
+            int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+            if (bestScore < countScore.score)
+            {
+                PlayerPrefs.SetInt("BestScore", countScore.score);
+            }
         }
     }
 }

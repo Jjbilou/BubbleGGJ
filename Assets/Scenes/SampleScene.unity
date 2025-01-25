@@ -484,6 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 790773671}
+  - component: {fileID: 790773673}
   - component: {fileID: 790773672}
   m_Layer: 0
   m_Name: GameLogic
@@ -514,12 +515,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790773670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d9f57b2b73a3841a84a9668a7d7874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triangle: {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
+  chargingTriangle: {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
+--- !u!114 &790773673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790773670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22597b9f961e5b2409f1a3b12c1a5bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &974575738
 GameObject:
   m_ObjectHideFlags: 0
