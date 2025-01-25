@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerKeyboardMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 300.0f;
+    [SerializeField]
+    float speed = 300.0f;
 
     Rigidbody2D player;
 
