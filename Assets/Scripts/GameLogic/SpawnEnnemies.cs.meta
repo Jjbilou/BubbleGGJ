@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - triangle: {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
+  - chargingTriangle: {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
