@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2593752980687130301}
   - component: {fileID: 2669630782012774625}
   - component: {fileID: 5449864105130427133}
+  - component: {fileID: -6245802952169897734}
   m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
@@ -180,3 +181,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyDrop: 1
+--- !u!114 &-6245802952169897734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8651504071613187835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3fae208773aa5458b1030915aea7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

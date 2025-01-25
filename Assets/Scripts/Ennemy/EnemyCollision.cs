@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCollision : MonoBehaviour
 {
@@ -16,20 +18,30 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bubble")
         {
-            StopCoroutine(gameCoroutine);
-            StopCoroutine(GameObject.Find("GameLogic").GetComponent<Init>().scoreCoroutine);
-
-            GameObject[] clones = GameObject.FindGameObjectsWithTag("clone");
-            foreach (GameObject clone in clones)
-            {
-                Destroy(clone);
-            }
-
-            int bestScore = PlayerPrefs.GetInt("BestScore", 0);
-            if (bestScore < GameData.score)
-            {
-                PlayerPrefs.SetInt("BestScore", GameData.score);
-            }
+            StartCoroutine(EndGame());
         }
+    }
+
+    IEnumerator EndGame()
+    {
+        StopCoroutine(gameCoroutine);
+        StopCoroutine(GameObject.Find("GameLogic").GetComponent<Init>().scoreCoroutine);
+
+        GameObject[] clones = GameObject.FindGameObjectsWithTag("clone");
+        foreach (GameObject clone in clones)
+        {
+            if (clone != gameObject)
+                Destroy(clone);
+        }
+
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        if (bestScore < GameData.score)
+        {
+            PlayerPrefs.SetInt("BestScore", GameData.score);
+        }
+
+        yield return new WaitForSeconds(3.0f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 }

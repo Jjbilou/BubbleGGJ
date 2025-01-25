@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerRotationLock : MonoBehaviour
+public class LockRotation : MonoBehaviour
 {
     Quaternion defaultRotation;
 
