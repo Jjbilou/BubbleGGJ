@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4971639239408318837}
   - component: {fileID: 1904912452271130978}
   m_Layer: 7
-  m_Name: ChargingTriangle
+  m_Name: ChargingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

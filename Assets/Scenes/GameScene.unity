@@ -56751,8 +56751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d9f57b2b73a3841a84a9668a7d7874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triangle: {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
-  chargingTriangle: {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
+  enemies:
+  - {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
+  - {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
 --- !u!114 &790773673
 MonoBehaviour:
   m_ObjectHideFlags: 0
