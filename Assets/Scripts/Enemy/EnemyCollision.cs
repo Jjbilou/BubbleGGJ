@@ -9,12 +9,28 @@ public class EnemyCollision : MonoBehaviour
 
     public Coroutine gameCoroutine;
 
+    private SpriteRenderer spriteRendererSword;
+    private SpriteRenderer spriteRendererEnemy;
+    private GameObject swordSwipe;
+    private Collider2D body;
+    private bool isGameEnd;
+
+
+    void Start()
+    {
+        swordSwipe = GameObject.Find("SwordSwipe");
+        spriteRendererSword = swordSwipe.GetComponent<SpriteRenderer>();
+        spriteRendererEnemy = GetComponent<SpriteRenderer>();
+        body = GetComponent<Collider2D>();
+        isGameEnd = false;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !isGameEnd)
         {
+            StartCoroutine(SwordAttack());
             GameData.money += moneyDrop;
-            Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("EnemyKiller"))
         {
@@ -22,9 +38,32 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bubble")
         {
+            isGameEnd = true;
             StartCoroutine(EndGame());
         }
     }
+
+    IEnumerator SwordAttack()
+    {
+        Vector3 direction = transform.position - swordSwipe.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        swordSwipe.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        float moveDistance = 0.3f;
+        Vector3 moveDirection = direction.normalized;
+        swordSwipe.transform.position += moveDirection * moveDistance;
+
+        spriteRendererEnemy.enabled = false;
+        body.enabled = false;
+
+        spriteRendererSword.enabled = true;
+
+        yield return new WaitForSeconds(0.2f);
+
+        spriteRendererSword.enabled = false;
+        Destroy(gameObject);
+    }
+    
 
     IEnumerator EndGame()
     {
