@@ -26,12 +26,19 @@ public class SpawnEnnemies : MonoBehaviour
 
     IEnumerator SpawnEnnemy()
     {
+        yield return new WaitForSeconds(0.5f);
+
         while (true)
         {
             Object ennemyPrefab = Helpers.GetRandomObject(triangle, chargingTriangle);
             Vector3 position = Helpers.GetRandomPositionOutside(xRadius, yRadius);
 
-            Object newEnnemy = Instantiate(ennemyPrefab, position, Quaternion.identity);
+            GameObject newEnnemy = (GameObject)Instantiate(
+                ennemyPrefab,
+                position,
+                Quaternion.identity
+            );
+            newEnnemy.tag = "clone";
             newEnnemy.GetComponent<EnnemyCollision>().gameCoroutine = gameCoroutine;
 
             yield return new WaitForSeconds(spawnInterval);
