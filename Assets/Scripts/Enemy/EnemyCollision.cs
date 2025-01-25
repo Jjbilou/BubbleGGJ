@@ -6,6 +6,7 @@ public class EnemyCollision : MonoBehaviour
 {
     [SerializeField]
     int moneyDrop;
+    AudioSource slash;
 
     public Coroutine gameCoroutine;
 
@@ -20,6 +21,7 @@ public class EnemyCollision : MonoBehaviour
     {
         swordSwipe = GameObject.Find("SwordSwipe");
         spriteRendererSword = swordSwipe.GetComponent<SpriteRenderer>();
+        slash = swordSwipe.GetComponent<AudioSource>();
         spriteRendererEnemy = GetComponent<SpriteRenderer>();
         body = GetComponent<Collider2D>();
         isGameEnd = false;
@@ -29,6 +31,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isGameEnd)
         {
+            slash.Play();
             StartCoroutine(SwordAttack());
             GameData.money += moneyDrop;
         }
@@ -49,7 +52,7 @@ public class EnemyCollision : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         swordSwipe.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        float moveDistance = 0.3f;
+        float moveDistance = 0.5f;
         Vector3 moveDirection = direction.normalized;
         swordSwipe.transform.position += moveDirection * moveDistance;
 
@@ -58,7 +61,7 @@ public class EnemyCollision : MonoBehaviour
 
         spriteRendererSword.enabled = true;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
 
         spriteRendererSword.enabled = false;
         Destroy(gameObject);

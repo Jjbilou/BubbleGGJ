@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1459896124695509085}
   - component: {fileID: 4488511747352470623}
   - component: {fileID: 4546568705667382392}
-  - component: {fileID: 4971639239408318837}
+  - component: {fileID: 4661654991647381202}
   - component: {fileID: 1904912452271130978}
   m_Layer: 7
   m_Name: ChargingTriangle
@@ -168,7 +168,7 @@ MonoBehaviour:
   backSprite: {fileID: 621347165, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   rightSprite: {fileID: 1118998944, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   leftSprite: {fileID: -443842407, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
---- !u!114 &4971639239408318837
+--- !u!114 &4661654991647381202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

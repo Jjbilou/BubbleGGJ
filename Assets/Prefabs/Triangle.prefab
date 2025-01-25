@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1459896124695509085}
   - component: {fileID: 2593752980687130301}
   - component: {fileID: 2669630782012774625}
-  - component: {fileID: 5449864105130427133}
   - component: {fileID: -6245802952169897734}
+  - component: {fileID: -7659401323763849088}
   m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
@@ -168,19 +168,6 @@ MonoBehaviour:
   backSprite: {fileID: -1003816543, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   rightSprite: {fileID: -1163993279, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   leftSprite: {fileID: 1917776937, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
---- !u!114 &5449864105130427133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8651504071613187835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4127c793fd840df44a470e3fdf9e9aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyDrop: 1
 --- !u!114 &-6245802952169897734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +180,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3fae208773aa5458b1030915aea7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7659401323763849088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8651504071613187835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4127c793fd840df44a470e3fdf9e9aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyDrop: 1
