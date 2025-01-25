@@ -12,13 +12,15 @@ public class EnemyCollision : MonoBehaviour
 
     private SpriteRenderer spriteRendererSword;
     private SpriteRenderer spriteRendererEnemy;
-    private GameObject swordSwipe;
+    private Transform swordSwipe;
     private Collider2D body;
     private bool isGameEnd;
 
+    readonly float swordMoveDistance = 0.5f;
+
     void Start()
     {
-        swordSwipe = GameObject.Find("SwordSwipe");
+        swordSwipe = GameObject.Find("SwordSwipe").transform;
         spriteRendererSword = swordSwipe.GetComponent<SpriteRenderer>();
         slash = swordSwipe.GetComponent<AudioSource>();
         spriteRendererEnemy = GetComponent<SpriteRenderer>();
@@ -47,13 +49,13 @@ public class EnemyCollision : MonoBehaviour
 
     IEnumerator SwordAttack()
     {
-        Vector3 direction = transform.position - swordSwipe.transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        swordSwipe.transform.rotation = Quaternion.Euler(0, 0, angle);
+        swordSwipe.localPosition = Vector3.zero;
 
-        float moveDistance = 0.5f;
+        Vector3 direction = transform.position - swordSwipe.position;
+        swordSwipe.right = direction;
+
         Vector3 moveDirection = direction.normalized;
-        swordSwipe.transform.position += moveDirection * moveDistance;
+        swordSwipe.localPosition = swordMoveDistance * moveDirection;
 
         spriteRendererEnemy.enabled = false;
         body.enabled = false;
