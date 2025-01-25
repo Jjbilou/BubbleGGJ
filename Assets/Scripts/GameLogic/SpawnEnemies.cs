@@ -1,8 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnEnnemies : MonoBehaviour
+public class SpawnEnemies : MonoBehaviour
 {
     [SerializeField]
     Object triangle;
@@ -21,25 +20,25 @@ public class SpawnEnnemies : MonoBehaviour
     {
         spawnInterval = 5.0f;
 
-        gameCoroutine = StartCoroutine(SpawnEnnemy());
+        gameCoroutine = StartCoroutine(SpawnEnemy());
     }
 
-    IEnumerator SpawnEnnemy()
+    IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(0.5f);
 
         while (true)
         {
-            Object ennemyPrefab = Helpers.GetRandomObject(triangle, chargingTriangle);
+            Object enemyPrefab = Helpers.GetRandomObject(triangle, chargingTriangle);
             Vector3 position = Helpers.GetRandomPositionOutside(xRadius, yRadius);
 
-            GameObject newEnnemy = (GameObject)Instantiate(
-                ennemyPrefab,
+            GameObject newEnemy = (GameObject)Instantiate(
+                enemyPrefab,
                 position,
                 Quaternion.identity
             );
-            newEnnemy.tag = "clone";
-            newEnnemy.GetComponent<EnnemyCollision>().gameCoroutine = gameCoroutine;
+            newEnemy.tag = "Clone";
+            newEnemy.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
 
             yield return new WaitForSeconds(spawnInterval);
 

@@ -26,13 +26,13 @@ public class Helpers : MonoBehaviour
     {
         int cases = Mathf.FloorToInt(Random.Range(0, 2));
 
-        Object ennemy = cases switch
+        Object enemy = cases switch
         {
             0 => triangle,
             1 => chargingTriangle,
             _ => triangle,
         };
 
-        return ennemy;
+        return enemy;
     }
 }
