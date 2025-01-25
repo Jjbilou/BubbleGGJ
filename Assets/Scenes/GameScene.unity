@@ -21649,13 +21649,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290905540}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1675492138}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &290905542
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56754,6 +56754,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
   - {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
+  - {fileID: 8651504071613187835, guid: 0308977677b163448bf1a5df7bcbe974, type: 3}
 --- !u!114 &790773673
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class EnemyCollision : MonoBehaviour
     private Collider2D body;
     private bool isGameEnd;
 
-
     void Start()
     {
         swordSwipe = GameObject.Find("SwordSwipe");
@@ -49,7 +48,7 @@ public class EnemyCollision : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         swordSwipe.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        float moveDistance = 0.3f;
+        float moveDistance = 0.5f;
         Vector3 moveDirection = direction.normalized;
         swordSwipe.transform.position += moveDirection * moveDistance;
 
@@ -63,7 +62,6 @@ public class EnemyCollision : MonoBehaviour
         spriteRendererSword.enabled = false;
         Destroy(gameObject);
     }
-    
 
     IEnumerator EndGame()
     {
