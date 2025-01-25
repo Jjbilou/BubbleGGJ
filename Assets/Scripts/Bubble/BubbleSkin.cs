@@ -13,12 +13,12 @@ public class BubbleSkin : MonoBehaviour
     [SerializeField]
     Sprite Bubble3;
 
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class BubbleSkin : MonoBehaviour
     {
         string skinName = PlayerPrefs.GetString("bubble", "Bubble1");
 
-        renderer.sprite = skinName switch
+        spriteRenderer.sprite = skinName switch
         {
             "Bubble1" => Bubble1,
             "Bubble2" => Bubble2,

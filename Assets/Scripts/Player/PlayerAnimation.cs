@@ -16,38 +16,38 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField]
     Sprite leftSprite;
 
-    Rigidbody2D rigidbody;
-    SpriteRenderer renderer;
+    Rigidbody2D body;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
+        body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rigidbody.velocity.y > 0)
+        if (body.velocity.y > 0)
         {
-            renderer.sprite = backSprite;
+            spriteRenderer.sprite = backSprite;
         }
-        else if (rigidbody.velocity.y < 0)
+        else if (body.velocity.y < 0)
         {
-            renderer.sprite = frontSprite;
+            spriteRenderer.sprite = frontSprite;
         }
-        else if (rigidbody.velocity.x > 0)
+        else if (body.velocity.x > 0)
         {
-            renderer.sprite = rightSprite;
+            spriteRenderer.sprite = rightSprite;
         }
-        else if (rigidbody.velocity.x < 0)
+        else if (body.velocity.x < 0)
         {
-            renderer.sprite = leftSprite;
+            spriteRenderer.sprite = leftSprite;
         }
         else
         {
-            renderer.sprite = frontSprite;
+            spriteRenderer.sprite = frontSprite;
         }
     }
 }
