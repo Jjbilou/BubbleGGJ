@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clone
   - EnemyKiller
+  - Music
   layers:
   - Default
   - TransparentFX

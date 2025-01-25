@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
@@ -12,6 +13,7 @@ public class SpawnEnemies : MonoBehaviour
     readonly float xRadius = 18.5f;
     readonly float yRadius = 10.5f;
     readonly float minSpawnInterval = 0.5f;
+    readonly List<Object> availableEnemies = new();
 
     float spawnInterval;
     Coroutine gameCoroutine;
@@ -19,8 +21,17 @@ public class SpawnEnemies : MonoBehaviour
     void Start()
     {
         spawnInterval = 5.0f;
+        availableEnemies.Add(triangle);
 
         gameCoroutine = StartCoroutine(SpawnEnemy());
+    }
+
+    void Update()
+    {
+        if (GameData.score >= 30 && !availableEnemies.Contains(chargingTriangle))
+        {
+            availableEnemies.Add(chargingTriangle);
+        }
     }
 
     IEnumerator SpawnEnemy()
@@ -29,7 +40,7 @@ public class SpawnEnemies : MonoBehaviour
 
         while (true)
         {
-            Object enemyPrefab = Helpers.GetRandomObject(triangle, chargingTriangle);
+            Object enemyPrefab = Helpers.GetRandomObject(availableEnemies);
             Vector3 position = Helpers.GetRandomPositionOutside(xRadius, yRadius);
 
             GameObject newEnemy = (GameObject)Instantiate(
