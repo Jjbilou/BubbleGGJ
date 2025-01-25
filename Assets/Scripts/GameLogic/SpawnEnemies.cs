@@ -37,7 +37,7 @@ public class SpawnEnemies : MonoBehaviour
                 position,
                 Quaternion.identity
             );
-            newEnemy.tag = "clone";
+            newEnemy.tag = "Clone";
             newEnemy.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
 
             yield return new WaitForSeconds(spawnInterval);

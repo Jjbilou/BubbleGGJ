@@ -19,6 +19,14 @@ public class Init : MonoBehaviour
         scoreCoroutine = StartCoroutine(AddScore());
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            GameData.isShopOpen = !GameData.isShopOpen;
+        }
+    }
+
     IEnumerator AddScore()
     {
         while (true)

@@ -11,9 +11,13 @@ public class EnemyCollision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameData.money += moneyDrop;
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("EnemyKiller"))
+        {
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "Bubble")
@@ -27,7 +31,7 @@ public class EnemyCollision : MonoBehaviour
         StopCoroutine(gameCoroutine);
         StopCoroutine(GameObject.Find("GameLogic").GetComponent<Init>().scoreCoroutine);
 
-        GameObject[] clones = GameObject.FindGameObjectsWithTag("clone");
+        GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone");
         foreach (GameObject clone in clones)
         {
             if (clone != gameObject)
