@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnnemyCollision : MonoBehaviour
 {
+    public Coroutine gameCoroutine;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Player")
@@ -10,7 +12,7 @@ public class EnnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bubble")
         {
-            print("PERDU");
+            StopCoroutine(gameCoroutine);
         }
     }
 }

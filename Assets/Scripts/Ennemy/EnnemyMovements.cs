@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnnemyMovements : MonoBehaviour
 {
-    [SerializeField] float speed = 100.0f;
+    [SerializeField]
+    float speed = 50.0f;
 
     Transform target;
     Rigidbody2D ennemy;
-
 
     // Start is called before the first frame update
     void Start()
