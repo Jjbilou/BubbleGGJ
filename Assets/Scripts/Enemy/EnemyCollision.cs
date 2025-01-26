@@ -20,28 +20,28 @@ public class EnemyCollision : MonoBehaviour
     private bool isGameEnd;
 
     bool isJudoka;
-    float pushForce;
 
+    readonly float pushForce = 0.5f;
     readonly float swordMoveDistance = 0.5f;
 
     void Start()
     {
-        player = GameObject.Find("Player").transform;
-        swordSwipe = player.Find("SwordSwipe").transform;
         bubble = GameObject.Find("Bubble").transform;
-        spriteRendererSword = swordSwipe.GetComponent<SpriteRenderer>();
-        slash = swordSwipe.GetComponent<AudioSource>();
         spriteRendererEnemy = GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<Collider2D>();
         isGameEnd = false;
         isJudoka = GetComponent<JudokaEnemyMovements>() ? true : false;
-        pushForce = 0.5f;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !isGameEnd)
         {
+            player = collision.transform;
+            swordSwipe = player.Find("SwordSwipe").transform;
+            spriteRendererSword = swordSwipe.GetComponent<SpriteRenderer>();
+            slash = swordSwipe.GetComponent<AudioSource>();
+
             if (isJudoka)
             {
                 Vector2 toBubble = bubble.position - transform.position;
