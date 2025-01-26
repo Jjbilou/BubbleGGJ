@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8358042863875822953}
   - component: {fileID: 1459896124695509085}
   - component: {fileID: 2593752980687130301}
-  - component: {fileID: 2669630782012774625}
+  - component: {fileID: -3268973101022612431}
   - component: {fileID: -6245802952169897734}
   - component: {fileID: -7659401323763849088}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: ShooterEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1000
-  m_Sprite: {fileID: -351658473, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  m_Sprite: {fileID: -2106795687, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.45, y: 0.58}
   m_Direction: 0
---- !u!114 &2669630782012774625
+--- !u!114 &-3268973101022612431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,14 +160,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8651504071613187835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d55303dbaa33a4891e648661a41c52, type: 3}
+  m_Script: {fileID: 11500000, guid: 76232fc650546fa44a0173c484b8c08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  frontSprite: {fileID: -351658473, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  backSprite: {fileID: -1003816543, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  rightSprite: {fileID: -1163993279, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  leftSprite: {fileID: 1917776937, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  frontSprite: {fileID: -2106795687, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  backSprite: {fileID: -1985942203, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  rightSprite: {fileID: -158721002, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  leftSprite: {fileID: -1080117804, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  bullet: {fileID: 8651504071613187835, guid: f7f19e43f6cf24743984141f5c39ea19, type: 3}
 --- !u!114 &-6245802952169897734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,4 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4127c793fd840df44a470e3fdf9e9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyDrop: 1
+  moneyDrop: 5
