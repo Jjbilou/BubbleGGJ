@@ -7,6 +7,9 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField]
     Object[] enemies;
 
+    [SerializeField]
+    int enemyByBatch;
+
     readonly float xRadius = 18.5f;
     readonly float yRadius = 10.5f;
     readonly float minSpawnInterval = 1.0f;
@@ -42,16 +45,19 @@ public class SpawnEnemies : MonoBehaviour
 
         while (true)
         {
-            Object enemyPrefab = Helpers.GetRandomObject(availableEnemies);
-            Vector3 position = Helpers.GetRandomPositionOutside(xRadius, yRadius);
+            for (int i = 0; i < enemyByBatch; i++)
+            {
+                Object enemyPrefab = Helpers.GetRandomObject(availableEnemies);
+                Vector3 position = Helpers.GetRandomPositionOutside(xRadius, yRadius);
 
-            GameObject newEnemy = (GameObject)Instantiate(
-                enemyPrefab,
-                position,
-                Quaternion.identity
-            );
-            newEnemy.tag = "Clone";
-            newEnemy.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
+                GameObject newEnemy = (GameObject)Instantiate(
+                    enemyPrefab,
+                    position,
+                    Quaternion.identity
+                );
+                newEnemy.tag = "Clone";
+                newEnemy.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
+            }
 
             yield return new WaitForSeconds(spawnInterval);
 

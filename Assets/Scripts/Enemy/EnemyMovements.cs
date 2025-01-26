@@ -30,7 +30,11 @@ public class EnemyMovements : MonoBehaviour
         player = GameObject.Find("Player");
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        slow = player.GetComponent<Slow>();
+
+        if (player)
+        {
+            slow = player.GetComponent<Slow>();
+        }
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class EnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
-        if (slow.isSlow)
+        if (slow && slow.isSlow)
         {
             speed /= 2;
         }

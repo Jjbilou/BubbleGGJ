@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/DuoGameScene.unity
+    guid: 7eb64b00b7f49e942aaa9c88823b8f3b
+  - enabled: 1
     path: Assets/Scenes/GameUI.unity
     guid: 353522deeaf9acc4ea0de2f4bd07e865
   - enabled: 1
