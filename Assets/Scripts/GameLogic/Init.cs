@@ -3,9 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class Init : MonoBehaviour
 {
-    [SerializeField]
-    float scoreAddingInterval = 2.0f;
-
     public Coroutine scoreCoroutine;
 
     void Awake()
