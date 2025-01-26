@@ -112129,7 +112129,7 @@ MonoBehaviour:
   - {fileID: 1352479842, guid: 15f9f4e84e5d8f44f9d2a7c86c984cdd, type: 3}
   - {fileID: 21300000, guid: 36abc153666223c46888ce7c60cea028, type: 3}
   - {fileID: 21300000, guid: 0afe916f4b4bafe468ef8a67b8d1557d, type: 3}
-  seasonDuration: 30
+  seasonDuration: 60
 --- !u!1 &1609575754
 GameObject:
   m_ObjectHideFlags: 0
@@ -115398,6 +115398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66c56d709d0c6a4da937b0b975d6b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyUp: 122
+  keyLeft: 113
+  keyDown: 115
+  keyRight: 100
   speed: 300
 --- !u!50 &1675492137
 Rigidbody2D:
@@ -115530,6 +115534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcaa212a2e27f84bb59a0bd3225ecfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 32
 --- !u!114 &1675492144
 MonoBehaviour:
   m_ObjectHideFlags: 0

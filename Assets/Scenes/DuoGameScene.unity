@@ -2953,7 +2953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28788051}
-  - component: {fileID: 28788050}
+  - component: {fileID: 28788052}
   m_Layer: 9
   m_Name: Bubble
   m_TagString: Untagged
@@ -2961,7 +2961,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &28788050
+--- !u!4 &28788051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28788049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1287622765}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &28788052
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2995,23 +3011,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.9
---- !u!4 &28788051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28788049}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1287622765}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Radius: 1.5
 --- !u!1 &30119531
 GameObject:
   m_ObjectHideFlags: 0
@@ -90233,7 +90233,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 28788051}
@@ -115468,11 +115468,15 @@ GameObject:
   - component: {fileID: 1675492138}
   - component: {fileID: 1675492137}
   - component: {fileID: 1675492140}
-  - component: {fileID: 1675492142}
+  - component: {fileID: 1675492147}
   - component: {fileID: 1675492141}
   - component: {fileID: 1675492139}
+  - component: {fileID: 1675492146}
+  - component: {fileID: 1675492145}
+  - component: {fileID: 1675492144}
+  - component: {fileID: 1675492143}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115585,7 +115589,7 @@ MonoBehaviour:
   backSprite: {fileID: -1136293033, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   rightSprite: {fileID: 3673416, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   leftSprite: {fileID: -693138918, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
---- !u!114 &1675492142
+--- !u!114 &1675492143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115594,9 +115598,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675492134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3357b66a17d3648b0ae96edf7346aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6908ea5fed0c13b4eaf2bc448105bda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1675492144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a167bdf11d074646a5a8fc100f5740c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlow: 0
+--- !u!114 &1675492145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcaa212a2e27f84bb59a0bd3225ecfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 32
+--- !u!114 &1675492146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8066c4fbd394bb2448f36abb348e1797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1675492147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66c56d709d0c6a4da937b0b975d6b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyUp: 122
+  keyLeft: 113
+  keyDown: 115
+  keyRight: 100
   speed: 300
 --- !u!1 &1679341409
 GameObject:
@@ -116886,9 +116944,10 @@ GameObject:
   - component: {fileID: 1696834112}
   - component: {fileID: 1696834111}
   - component: {fileID: 1696834110}
-  - component: {fileID: 1696834113}
+  - component: {fileID: 1696834115}
   - component: {fileID: 1696834108}
   - component: {fileID: 1696834107}
+  - component: {fileID: 1696834114}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -117003,7 +117062,7 @@ Transform:
   - {fileID: 1035719938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696834113
+--- !u!114 &1696834114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117012,9 +117071,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696834106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59e46c7c8c4a76443a3b01f9ff46186f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fcaa212a2e27f84bb59a0bd3225ecfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 303
+--- !u!114 &1696834115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696834106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66c56d709d0c6a4da937b0b975d6b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyUp: 111
+  keyLeft: 107
+  keyDown: 108
+  keyRight: 109
   speed: 300
 --- !u!1 &1696921223
 GameObject:

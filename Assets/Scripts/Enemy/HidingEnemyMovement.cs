@@ -37,10 +37,7 @@ public class HidingEnemyMovement : MonoBehaviour
         isWaiting = false;
         isWalking = false;
 
-        if (player)
-        {
-            slow = player.GetComponent<Slow>();
-        }
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -48,7 +45,7 @@ public class HidingEnemyMovement : MonoBehaviour
     {
         Move();
         Animate();
-        if (slow && slow.isSlow)
+        if (slow.isSlow)
         {
             speed /= 2;
         }

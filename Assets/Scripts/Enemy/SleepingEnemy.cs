@@ -33,10 +33,7 @@ public class SleepingEnemy : MonoBehaviour
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (player)
-        {
-            slow = player.GetComponent<Slow>();
-        }
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -44,7 +41,7 @@ public class SleepingEnemy : MonoBehaviour
     {
         Move();
         Animate();
-        if (slow && slow.isSlow)
+        if (slow.isSlow)
         {
             speed /= 2;
         }

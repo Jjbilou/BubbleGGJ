@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
+    [SerializeField]
+    KeyCode key;
+
     PlayerMovement playerMovement;
     bool dashActif = false;
 
@@ -15,21 +18,16 @@ public class Dash : MonoBehaviour
 
     void Update()
     {
-        if (
-            GameData.usePowerups
-            && Input.GetKeyDown(KeyCode.Space)
-            && GameData.money >= 15
-            && !dashActif
-        )
+        if (GameData.usePowerups && Input.GetKeyDown(key) && GameData.money >= 5 && !dashActif)
         {
-            GameData.money -= 15;
+            GameData.money -= 5;
             StartCoroutine(Boost());
-            dashActif = true;
         }
     }
 
     IEnumerator Boost()
     {
+        dashActif = true;
         playerMovement.speed += 2000f;
 
         yield return new WaitForSeconds(duration);
