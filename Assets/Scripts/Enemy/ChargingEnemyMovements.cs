@@ -4,7 +4,7 @@ using UnityEngine;
 public class ChargingEnemyMovements : MonoBehaviour
 {
     [SerializeField]
-    float speed = 50.0f;
+    float speed = 100.0f;
 
     [SerializeField]
     Sprite frontSprite;

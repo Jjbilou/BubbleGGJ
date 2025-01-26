@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HidingEnemyMovement : MonoBehaviour
 {
     [SerializeField]
-    float speed = 50.0f;
+    float speed = 100.0f;
 
     [SerializeField]
     Sprite frontSprite;
