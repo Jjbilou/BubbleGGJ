@@ -25,12 +25,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float xInput = Input.GetKey(keyRight)
-            ? (Input.GetKey(keyLeft) ? 0.0f : 1.0f)
-            : (Input.GetKey(keyLeft) ? -1.0f : 0.0f);
-        float yInput = Input.GetKey(keyUp)
-            ? (Input.GetKey(keyDown) ? 0.0f : 1.0f)
-            : (Input.GetKey(keyDown) ? -1.0f : 0.0f);
+        float xInput = 0.0f;
+        float yInput = 0.0f;
+
+        // Horizontal input
+        if (Input.GetKey(keyRight))
+            xInput += 1.0f;
+        if (Input.GetKey(keyLeft))
+            xInput -= 1.0f;
+
+        // Vertical input
+        if (Input.GetKey(keyUp))
+            yInput += 1.0f;
+        if (Input.GetKey(keyDown))
+            yInput -= 1.0f;
 
         Vector2 movement = new(xInput, yInput);
         movement.Normalize();
