@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
 
-public class TeleportingEnemyMovements : MonoBehaviour
+public class SleepingEnemy : MonoBehaviour
 {
     [SerializeField]
-    float speed = 100.0f;
+    public float speed = 25.0f;
 
     [SerializeField]
     Sprite frontSprite;
@@ -17,35 +16,30 @@ public class TeleportingEnemyMovements : MonoBehaviour
 
     [SerializeField]
     Sprite leftSprite;
-    Slow slow;
-    GameObject player;
+    bool isSleeping;
     Transform target;
+    GameObject player;
+    Slow slow;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
-    Collider2D enemyCollider;
-
-    bool isMoving;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        isSleeping = false;
         target = GameObject.Find("Bubble").transform;
+        player = GameObject.Find("Player");
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        enemyCollider = GetComponent<Collider2D>();
         slow = player.GetComponent<Slow>();
-
-        isMoving = false;
-
-        StartCoroutine(Teleport());
+        StartCoroutine(Sleep());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Animate();
         Move();
+        Animate();
         if (slow.isSlow)
         {
             speed /= 2;
@@ -54,56 +48,16 @@ public class TeleportingEnemyMovements : MonoBehaviour
 
     void Move()
     {
-        if (isMoving)
-        {
+        if (!isSleeping) {
             Vector2 movement = target.position - transform.position;
             movement.Normalize();
-            enemy.velocity = 3.0f * speed * Time.deltaTime * movement;
+            enemy.velocity = speed * Time.deltaTime * movement;
         }
         else
         {
             enemy.velocity = Vector2.zero;
         }
-    }
-
-    IEnumerator Teleport()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(4.0f);
-
-            while (spriteRenderer.color.a > 0.0f)
-            {
-                spriteRenderer.color = new Color(
-                    spriteRenderer.color.r,
-                    spriteRenderer.color.g,
-                    spriteRenderer.color.b,
-                    Mathf.Max(spriteRenderer.color.a - 0.05f, 0.0f)
-                );
-
-                yield return null;
-            }
-
-            enemyCollider.enabled = false;
-            isMoving = true;
-
-            yield return new WaitForSeconds(1.0f);
-
-            isMoving = false;
-            enemyCollider.enabled = true;
-
-            while (spriteRenderer.color.a < 1.0f)
-            {
-                spriteRenderer.color = new Color(
-                    spriteRenderer.color.r,
-                    spriteRenderer.color.g,
-                    spriteRenderer.color.b,
-                    Mathf.Min(spriteRenderer.color.a + 0.05f, 1.0f)
-                );
-
-                yield return null;
-            }
-        }
+        
     }
 
     void Animate()
@@ -130,5 +84,12 @@ public class TeleportingEnemyMovements : MonoBehaviour
                 spriteRenderer.sprite = leftSprite;
             }
         }
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(5);
+
+        isSleeping = true;
     }
 }

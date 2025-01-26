@@ -56849,6 +56849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 3872091334588504174, guid: 1c7fc708438e9f14c908230c93e2105a, type: 3}
   - {fileID: 8651504071613187835, guid: ae567a6d103d8f44a80e869527b36296, type: 3}
   - {fileID: 8651504071613187835, guid: ac0f0285ae1d9f7438f4ff818a073980, type: 3}
   - {fileID: 8651504071613187835, guid: 0308977677b163448bf1a5df7bcbe974, type: 3}
@@ -56867,7 +56868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22597b9f961e5b2409f1a3b12c1a5bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreAddingInterval: 2
 --- !u!1 &795102590
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,20 +21,22 @@ public class ShooterEnemyMovements : MonoBehaviour
 
     [SerializeField]
     Object bullet;
-
+    GameObject player;
     Transform target;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
-
+    Slow slow;
     bool isShooting;
     Coroutine gameCoroutine;
 
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameCoroutine = GetComponent<EnemyCollision>().gameCoroutine;
+        slow = player.GetComponent<Slow>();
 
         isShooting = false;
     }
@@ -43,6 +45,10 @@ public class ShooterEnemyMovements : MonoBehaviour
     {
         Animate();
         Move();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     void Move()
