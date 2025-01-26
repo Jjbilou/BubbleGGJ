@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 6772562111196269364}
   - component: {fileID: 8358042863875822953}
   - component: {fileID: 1459896124695509085}
-  - component: {fileID: 2593752980687130301}
-  - component: {fileID: 998002257608320238}
-  - component: {fileID: -6245802952169897734}
-  - component: {fileID: -7659401323763849088}
+  - component: {fileID: 4488511747352470623}
+  - component: {fileID: 5126606513866356554}
+  - component: {fileID: 616526477320546164}
   m_Layer: 7
-  m_Name: TeleportingEnemy
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1000
-  m_Sprite: {fileID: -644505584, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
+  m_Sprite: {fileID: -769049568, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +115,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &2593752980687130301
+--- !u!70 &4488511747352470623
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +150,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.45, y: 0.58}
   m_Direction: 0
---- !u!114 &998002257608320238
+--- !u!114 &5126606513866356554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,27 +159,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8651504071613187835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86e9b4a7200ed647b9e82ca678b1ef3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a5847a82f6a6bb479213b81762e7c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  frontSprite: {fileID: -644505584, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  backSprite: {fileID: -169513975, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  rightSprite: {fileID: 1279551706, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
-  leftSprite: {fileID: 1186017795, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
---- !u!114 &-6245802952169897734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8651504071613187835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fae208773aa5458b1030915aea7ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-7659401323763849088
+--- !u!114 &616526477320546164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4127c793fd840df44a470e3fdf9e9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyDrop: 10
+  moneyDrop: 0

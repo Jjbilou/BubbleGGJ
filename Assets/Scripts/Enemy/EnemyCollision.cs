@@ -74,7 +74,6 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bubble")
         {
-            isGameEnd = true;
             StartCoroutine(EndGame());
         }
     }
@@ -105,14 +104,23 @@ public class EnemyCollision : MonoBehaviour
 
     IEnumerator EndGame()
     {
+        isGameEnd = true;
+
         StopCoroutine(gameCoroutine);
         StopCoroutine(GameObject.Find("GameLogic").GetComponent<Init>().scoreCoroutine);
 
         GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone");
         foreach (GameObject clone in clones)
         {
-            clone.GetComponent<SpriteRenderer>().enabled = false;
-            clone.GetComponent<Collider2D>().enabled = false;
+            if (clone == gameObject)
+            {
+                clone.GetComponent<SpriteRenderer>().enabled = false;
+                clone.GetComponent<Collider2D>().enabled = false;
+            }
+            else
+            {
+                Destroy(clone);
+            }
         }
 
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
