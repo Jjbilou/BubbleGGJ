@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SleepingEnemy : MonoBehaviour
@@ -32,7 +33,6 @@ public class SleepingEnemy : MonoBehaviour
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         slow = player.GetComponent<Slow>();
-        StartCoroutine(Sleep());
     }
 
     // Update is called once per frame
@@ -48,7 +48,13 @@ public class SleepingEnemy : MonoBehaviour
 
     void Move()
     {
-        if (!isSleeping) {
+        if (Vector2.Distance(target.position, transform.position) < 9.0f)
+        {
+            isSleeping = true;
+        }
+
+        if (!isSleeping)
+        {
             Vector2 movement = target.position - transform.position;
             movement.Normalize();
             enemy.velocity = speed * Time.deltaTime * movement;
@@ -57,7 +63,6 @@ public class SleepingEnemy : MonoBehaviour
         {
             enemy.velocity = Vector2.zero;
         }
-        
     }
 
     void Animate()
@@ -84,12 +89,5 @@ public class SleepingEnemy : MonoBehaviour
                 spriteRenderer.sprite = leftSprite;
             }
         }
-    }
-
-    IEnumerator Sleep()
-    {
-        yield return new WaitForSeconds(5);
-
-        isSleeping = true;
     }
 }
