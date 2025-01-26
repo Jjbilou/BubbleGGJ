@@ -2,6 +2,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    KeyCode keyUp;
+
+    [SerializeField]
+    KeyCode keyLeft;
+
+    [SerializeField]
+    KeyCode keyDown;
+
+    [SerializeField]
+    KeyCode keyRight;
+
     public float speed = 300.0f;
 
     Rigidbody2D player;
@@ -13,7 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 movement = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        float xInput = Input.GetKey(keyRight)
+            ? (Input.GetKey(keyLeft) ? 0.0f : 1.0f)
+            : (Input.GetKey(keyLeft) ? -1.0f : 0.0f);
+        float yInput = Input.GetKey(keyUp)
+            ? (Input.GetKey(keyDown) ? 0.0f : 1.0f)
+            : (Input.GetKey(keyDown) ? -1.0f : 0.0f);
+
+        Vector2 movement = new(xInput, yInput);
         movement.Normalize();
 
         player.velocity = speed * Time.deltaTime * movement;

@@ -38,17 +38,14 @@ public class ShooterEnemyMovements : MonoBehaviour
 
         isShooting = false;
 
-        if (player)
-        {
-            slow = player.GetComponent<Slow>();
-        }
+        slow = player.GetComponent<Slow>();
     }
 
     void Update()
     {
         Animate();
         Move();
-        if (slow && slow.isSlow)
+        if (slow.isSlow)
         {
             speed /= 2;
         }

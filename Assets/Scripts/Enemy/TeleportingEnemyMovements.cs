@@ -35,10 +35,7 @@ public class TeleportingEnemyMovements : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<Collider2D>();
 
-        if (player)
-        {
-            slow = player.GetComponent<Slow>();
-        }
+        slow = player.GetComponent<Slow>();
 
         isMoving = false;
 
@@ -50,7 +47,7 @@ public class TeleportingEnemyMovements : MonoBehaviour
     {
         Animate();
         Move();
-        if (slow && slow.isSlow)
+        if (slow.isSlow)
         {
             speed /= 2;
         }

@@ -39,11 +39,7 @@ public class ChargingEnemyMovements : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
         isCharging = false;
-
-        if (player)
-        {
-            slow = player.GetComponent<Slow>();
-        }
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -51,7 +47,7 @@ public class ChargingEnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
-        if (slow && slow.isSlow)
+        if (slow.isSlow)
         {
             speed /= 2;
         }
