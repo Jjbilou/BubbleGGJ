@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyMovements : MonoBehaviour
 {
     [SerializeField]
-    float speed = 50.0f;
+    public float speed = 50.0f;
 
     [SerializeField]
     Sprite frontSprite;
@@ -18,6 +18,8 @@ public class EnemyMovements : MonoBehaviour
     Sprite leftSprite;
 
     Transform target;
+    GameObject player;
+    Slow slow;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
 
@@ -25,8 +27,10 @@ public class EnemyMovements : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Bubble").transform;
+        player = GameObject.Find("Player");
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,10 @@ public class EnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+        if  (slow.isSlow) 
+        {
+            speed /= 2;
+        }
     }
 
     void Move()
