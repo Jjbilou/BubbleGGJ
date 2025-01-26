@@ -18,5 +18,7 @@ public class Init : MonoBehaviour
         GameData.money = 0;
         GameData.score = 0;
         GameData.usePowerups = usePowerups;
+        GameData.enemyKilled = 0;
+        GameData.enemyKilledByP2 = 0;
     }
 }
