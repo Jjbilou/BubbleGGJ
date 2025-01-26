@@ -11,7 +11,7 @@ public class BubbleAnimation : MonoBehaviour
         defaultScaleY = transform.localScale.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.localScale = (Time.frameCount % 60) switch
         {
