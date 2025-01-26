@@ -16,7 +16,12 @@ public class SpeedBoost : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && GameData.money >= 10 && !boostActif)
+        if (
+            GameData.usePowerups
+            && Input.GetKeyDown(KeyCode.A)
+            && GameData.money >= 10
+            && !boostActif
+        )
         {
             GameData.money -= 10;
             StartCoroutine(Boost());

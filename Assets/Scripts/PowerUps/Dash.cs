@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash : MonoBehaviour
@@ -16,7 +15,12 @@ public class Dash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GameData.money >= 10 && !dashActif)
+        if (
+            GameData.usePowerups
+            && Input.GetKeyDown(KeyCode.Space)
+            && GameData.money >= 10
+            && !dashActif
+        )
         {
             GameData.money -= 10;
             StartCoroutine(Boost());
