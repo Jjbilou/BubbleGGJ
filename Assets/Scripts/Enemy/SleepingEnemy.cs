@@ -37,7 +37,7 @@ public class SleepingEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         Animate();

@@ -43,7 +43,7 @@ public class ChargingEnemyMovements : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         Animate();

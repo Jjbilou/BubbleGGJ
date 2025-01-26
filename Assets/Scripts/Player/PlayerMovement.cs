@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float xInput = 0.0f;
         float yInput = 0.0f;

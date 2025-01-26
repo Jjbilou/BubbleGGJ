@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         enemy = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
 

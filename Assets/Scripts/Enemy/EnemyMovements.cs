@@ -34,7 +34,7 @@ public class EnemyMovements : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         Animate();

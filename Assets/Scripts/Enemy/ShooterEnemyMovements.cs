@@ -41,7 +41,7 @@ public class ShooterEnemyMovements : MonoBehaviour
         slow = player.GetComponent<Slow>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Animate();
         Move();
