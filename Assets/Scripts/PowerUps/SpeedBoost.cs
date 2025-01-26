@@ -30,11 +30,11 @@ public class SpeedBoost : MonoBehaviour
 
     IEnumerator Boost()
     {
-        playerMovement.speed += 500f;
+        playerMovement.speed *= 2.0f;
 
         yield return new WaitForSeconds(duration);
 
-        playerMovement.speed -= 500f;
+        playerMovement.speed /= 2.0f;
         boostActif = false;
     }
 }

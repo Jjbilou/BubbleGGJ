@@ -70,6 +70,7 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("EnemyKiller"))
         {
+            GameData.usePowerups = true;
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "Bubble")
@@ -98,6 +99,8 @@ public class EnemyCollision : MonoBehaviour
 
         spriteRendererSword.enabled = false;
         GameData.money += moneyDrop;
+
+        GameData.usePowerups = true;
 
         Destroy(gameObject);
     }

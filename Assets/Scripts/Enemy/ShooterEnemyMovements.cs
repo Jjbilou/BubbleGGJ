@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShooterEnemyMovements : MonoBehaviour
@@ -36,16 +35,20 @@ public class ShooterEnemyMovements : MonoBehaviour
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameCoroutine = GetComponent<EnemyCollision>().gameCoroutine;
-        slow = player.GetComponent<Slow>();
 
         isShooting = false;
+
+        if (player)
+        {
+            slow = player.GetComponent<Slow>();
+        }
     }
 
     void Update()
     {
         Animate();
         Move();
-        if (slow.isSlow)
+        if (slow && slow.isSlow)
         {
             speed /= 2;
         }

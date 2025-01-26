@@ -18,11 +18,11 @@ public class Dash : MonoBehaviour
         if (
             GameData.usePowerups
             && Input.GetKeyDown(KeyCode.Space)
-            && GameData.money >= 10
+            && GameData.money >= 15
             && !dashActif
         )
         {
-            GameData.money -= 10;
+            GameData.money -= 15;
             StartCoroutine(Boost());
             dashActif = true;
         }

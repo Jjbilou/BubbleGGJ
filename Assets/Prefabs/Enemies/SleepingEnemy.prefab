@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8020211948299257315}
   - component: {fileID: 9198125460624113325}
   - component: {fileID: -773775422865073838}
+  - component: {fileID: -2883338753966297255}
   - component: {fileID: 2696698729514338849}
   - component: {fileID: 2281877292757675069}
   - component: {fileID: 706325214099962177}
-  - component: {fileID: -2883338753966297255}
   m_Layer: 7
   m_Name: SleepingEnemy
   m_TagString: Untagged
@@ -116,6 +116,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &-2883338753966297255
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872091334588504174}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.45, y: 0.58}
+  m_Direction: 0
 --- !u!114 &2696698729514338849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,38 +193,3 @@ MonoBehaviour:
   backSprite: {fileID: -1961051209, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   rightSprite: {fileID: -132150285, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
   leftSprite: {fileID: -1136383475, guid: e68ee1aa2040cbe459b48c68c04ccf37, type: 3}
---- !u!70 &-2883338753966297255
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3872091334588504174}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.45, y: 0.58}
-  m_Direction: 0
