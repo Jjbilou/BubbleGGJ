@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class EnemyKilled : MonoBehaviour
 {
     TMP_Text textField;
 
@@ -13,6 +13,6 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        textField.text = "Season: " + GameData.score.ToString();
+        textField.text = "P1: " + GameData.enemyKilled.ToString();
     }
 }

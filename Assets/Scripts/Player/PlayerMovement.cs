@@ -28,13 +28,11 @@ public class PlayerMovement : MonoBehaviour
         float xInput = 0.0f;
         float yInput = 0.0f;
 
-        // Horizontal input
         if (Input.GetKey(keyRight))
             xInput += 1.0f;
         if (Input.GetKey(keyLeft))
             xInput -= 1.0f;
 
-        // Vertical input
         if (Input.GetKey(keyUp))
             yInput += 1.0f;
         if (Input.GetKey(keyDown))

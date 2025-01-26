@@ -56,6 +56,15 @@ public class EnemyCollision : MonoBehaviour
 
                 if (dotProduct < 0)
                 {
+                    if (collision.gameObject.name == "Player")
+                    {
+                        GameData.enemyKilled++;
+                    }
+                    else
+                    {
+                        GameData.enemyKilledByP2++;
+                    }
+
                     StartCoroutine(SwordAttack());
                 }
                 else
@@ -65,6 +74,15 @@ public class EnemyCollision : MonoBehaviour
             }
             else
             {
+                if (collision.gameObject.name == "Player")
+                {
+                    GameData.enemyKilled++;
+                }
+                else
+                {
+                    GameData.enemyKilledByP2++;
+                }
+
                 StartCoroutine(SwordAttack());
             }
         }
