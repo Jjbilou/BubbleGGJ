@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovements : MonoBehaviour
+public class JudokaEnemyMovements : MonoBehaviour
 {
     [SerializeField]
     float speed = 100.0f;
@@ -40,7 +40,8 @@ public class EnemyMovements : MonoBehaviour
     {
         Vector2 movement = target.position - transform.position;
         movement.Normalize();
-        enemy.velocity = speed * Time.deltaTime * movement;
+
+        enemy.velocity = 1.0f * speed * Time.deltaTime * movement;
     }
 
     void Animate()
