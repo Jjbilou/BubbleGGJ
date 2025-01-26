@@ -107,7 +107,6 @@ public class EnemyCollision : MonoBehaviour
         isGameEnd = true;
 
         StopCoroutine(gameCoroutine);
-        StopCoroutine(GameObject.Find("GameLogic").GetComponent<Init>().scoreCoroutine);
 
         GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone");
         foreach (GameObject clone in clones)

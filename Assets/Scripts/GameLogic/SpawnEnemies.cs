@@ -10,7 +10,6 @@ public class SpawnEnemies : MonoBehaviour
     readonly float xRadius = 18.5f;
     readonly float yRadius = 10.5f;
     readonly float minSpawnInterval = 1.0f;
-    readonly int stepSize = 30;
     readonly List<Object> availableEnemies = new();
 
     float spawnInterval;
@@ -27,13 +26,13 @@ public class SpawnEnemies : MonoBehaviour
     void Update()
     {
         if (
-            GameData.score % stepSize == 0
+            GameData.score == availableEnemies.Count
             && availableEnemies.Count < enemies.Length
             && GameData.score != 0
         )
         {
             spawnInterval = 5.0f;
-            availableEnemies.Add(enemies[GameData.score / stepSize]);
+            availableEnemies.Add(enemies[GameData.score]);
         }
     }
 

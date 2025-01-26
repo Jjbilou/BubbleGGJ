@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeSeason : MonoBehaviour
@@ -41,6 +40,8 @@ public class ChangeSeason : MonoBehaviour
                     yield return null;
                 }
             }
+
+            GameData.score++;
         }
     }
 }
