@@ -38,7 +38,7 @@ public class EnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
-        if  (slow.isSlow) 
+        if (slow.isSlow)
         {
             speed /= 2;
         }

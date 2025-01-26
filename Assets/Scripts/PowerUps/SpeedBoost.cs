@@ -5,16 +5,15 @@ using UnityEngine;
 public class SpeedBoost : MonoBehaviour
 {
     PlayerMovement playerMovement;
-    float duration = 5f;
     bool boostActif = false;
 
-    // Start is called before the first frame update
+    readonly float duration = 5f;
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A) && GameData.money >= 10 && !boostActif)
@@ -23,7 +22,6 @@ public class SpeedBoost : MonoBehaviour
             StartCoroutine(Boost());
             boostActif = true;
         }
-        
     }
 
     IEnumerator Boost()
