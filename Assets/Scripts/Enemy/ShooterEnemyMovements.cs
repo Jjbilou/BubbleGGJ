@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShooterEnemyMovements : MonoBehaviour
@@ -21,28 +20,35 @@ public class ShooterEnemyMovements : MonoBehaviour
 
     [SerializeField]
     Object bullet;
-
+    GameObject player;
     Transform target;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
-
+    Slow slow;
     bool isShooting;
     Coroutine gameCoroutine;
 
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameCoroutine = GetComponent<EnemyCollision>().gameCoroutine;
 
         isShooting = false;
+
+        slow = player.GetComponent<Slow>();
     }
 
     void Update()
     {
         Animate();
         Move();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     void Move()

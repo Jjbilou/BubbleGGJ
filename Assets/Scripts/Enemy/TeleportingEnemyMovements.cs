@@ -17,7 +17,8 @@ public class TeleportingEnemyMovements : MonoBehaviour
 
     [SerializeField]
     Sprite leftSprite;
-
+    Slow slow;
+    GameObject player;
     Transform target;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
@@ -28,10 +29,13 @@ public class TeleportingEnemyMovements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<Collider2D>();
+
+        slow = player.GetComponent<Slow>();
 
         isMoving = false;
 
@@ -43,6 +47,10 @@ public class TeleportingEnemyMovements : MonoBehaviour
     {
         Animate();
         Move();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     void Move()

@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
-public class EnemyMovements : MonoBehaviour
+public class SleepingEnemy : MonoBehaviour
 {
     [SerializeField]
-    public float speed = 50.0f;
+    public float speed = 25.0f;
 
     [SerializeField]
     Sprite frontSprite;
@@ -16,7 +17,7 @@ public class EnemyMovements : MonoBehaviour
 
     [SerializeField]
     Sprite leftSprite;
-
+    bool isSleeping;
     Transform target;
     GameObject player;
     Slow slow;
@@ -26,10 +27,12 @@ public class EnemyMovements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isSleeping = false;
         target = GameObject.Find("Bubble").transform;
         player = GameObject.Find("Player");
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         slow = player.GetComponent<Slow>();
     }
 
@@ -46,9 +49,22 @@ public class EnemyMovements : MonoBehaviour
 
     void Move()
     {
-        Vector2 movement = target.position - transform.position;
-        movement.Normalize();
-        enemy.velocity = speed * Time.deltaTime * movement;
+        if (Vector2.Distance(target.position, transform.position) < 9.0f)
+        {
+            isSleeping = true;
+        }
+
+        if (!isSleeping)
+        {
+            Vector2 movement = target.position - transform.position;
+            movement.Normalize();
+            enemy.velocity = speed * Time.deltaTime * movement;
+        }
+        else
+        {
+            GameData.usePowerups = false;
+            enemy.velocity = Vector2.zero;
+        }
     }
 
     void Animate()

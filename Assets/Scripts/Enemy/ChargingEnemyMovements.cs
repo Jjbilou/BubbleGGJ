@@ -21,6 +21,8 @@ public class ChargingEnemyMovements : MonoBehaviour
     Transform target;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
+    Slow slow;
+    GameObject player;
 
     bool isWaiting;
     bool isCharging;
@@ -31,11 +33,13 @@ public class ChargingEnemyMovements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
         isCharging = false;
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -43,6 +47,10 @@ public class ChargingEnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     IEnumerator WaitAndCharge()

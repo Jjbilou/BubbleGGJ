@@ -18,15 +18,20 @@ public class JudokaEnemyMovements : MonoBehaviour
     Sprite leftSprite;
 
     Transform target;
+    Slow slow;
+    GameObject player;
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -34,6 +39,10 @@ public class JudokaEnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     void Move()

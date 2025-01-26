@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class SpeedBoost : MonoBehaviour
 {
-    PlayerMovement playerMovement;
-    bool boostActif = false;
+    bool boostActif;
 
     readonly float duration = 5f;
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        boostActif = false;
     }
 
     void Update()
@@ -30,11 +29,18 @@ public class SpeedBoost : MonoBehaviour
 
     IEnumerator Boost()
     {
-        playerMovement.speed += 500f;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerMovement>().speed *= 2.0f;
+        }
 
         yield return new WaitForSeconds(duration);
 
-        playerMovement.speed -= 500f;
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerMovement>().speed /= 2.0f;
+        }
         boostActif = false;
     }
 }

@@ -20,6 +20,8 @@ public class HidingEnemyMovement : MonoBehaviour
 
     Transform target;
     Rigidbody2D enemy;
+    Slow slow;
+    GameObject player;
     SpriteRenderer spriteRenderer;
 
     bool isWaiting;
@@ -28,11 +30,14 @@ public class HidingEnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
         isWalking = false;
+
+        slow = player.GetComponent<Slow>();
     }
 
     // Update is called once per frame
@@ -40,6 +45,10 @@ public class HidingEnemyMovement : MonoBehaviour
     {
         Move();
         Animate();
+        if (slow.isSlow)
+        {
+            speed /= 2;
+        }
     }
 
     IEnumerator WaitAndShow()

@@ -20,9 +20,9 @@ public class Saws : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameData.usePowerups && Input.GetKeyDown(KeyCode.E) && GameData.money >= 10)
+        if (GameData.usePowerups && Input.GetKeyDown(KeyCode.E) && GameData.money >= 5)
         {
-            GameData.money -= 10;
+            GameData.money -= 5;
             sawDuration += 5.0f;
         }
 

@@ -13,6 +13,6 @@ public class Money : MonoBehaviour
 
     void Update()
     {
-        textField.text = "$" + GameData.money.ToString();
+        textField.text = GameData.money.ToString();
     }
 }
