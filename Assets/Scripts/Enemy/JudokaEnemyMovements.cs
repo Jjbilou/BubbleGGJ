@@ -1,7 +1,6 @@
-using System.Collections;
 using UnityEngine;
 
-public class ChargingEnemyMovements : MonoBehaviour
+public class JudokaEnemyMovements : MonoBehaviour
 {
     [SerializeField]
     float speed = 100.0f;
@@ -22,20 +21,12 @@ public class ChargingEnemyMovements : MonoBehaviour
     Rigidbody2D enemy;
     SpriteRenderer spriteRenderer;
 
-    bool isWaiting;
-    bool isCharging;
-
-    readonly float xRadius = 17f;
-    readonly float yRadius = 9.5f;
-
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        isWaiting = false;
-        isCharging = false;
     }
 
     // Update is called once per frame
@@ -45,39 +36,12 @@ public class ChargingEnemyMovements : MonoBehaviour
         Animate();
     }
 
-    IEnumerator WaitAndCharge()
-    {
-        yield return new WaitForSeconds(3.0f);
-
-        isWaiting = false;
-        isCharging = true;
-    }
-
     void Move()
     {
         Vector2 movement = target.position - transform.position;
         movement.Normalize();
 
-        if (!isWaiting)
-        {
-            if (
-                !isCharging
-                && transform.position.x > -xRadius
-                && transform.position.x < xRadius
-                && transform.position.y > -yRadius
-                && transform.position.y < yRadius
-            )
-            {
-                isWaiting = true;
-                StartCoroutine(WaitAndCharge());
-            }
-
-            enemy.velocity = (isCharging ? 5.0f : 1.0f) * speed * Time.deltaTime * movement;
-        }
-        else
-        {
-            enemy.velocity = 0.1f * speed * Time.deltaTime * movement;
-        }
+        enemy.velocity = 1.0f * speed * Time.deltaTime * movement;
     }
 
     void Animate()
