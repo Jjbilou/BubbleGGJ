@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyCollision : MonoBehaviour
 {
@@ -9,19 +8,16 @@ public class EnemyCollision : MonoBehaviour
     int moneyDrop;
     AudioSource slash;
 
-    public Coroutine gameCoroutine;
-
     private SpriteRenderer spriteRendererEnemy;
     private SpriteRenderer spriteRendererSword;
     private Transform player;
     private Transform bubble;
     private Transform swordSwipe;
     private Collider2D enemyCollider;
-    private bool isGameEnd;
 
     bool isJudoka;
 
-    readonly float pushForce = 0.5f;
+    readonly float pushForce = 1f;
     readonly float swordMoveDistance = 0.5f;
 
     void Start()
@@ -29,13 +25,12 @@ public class EnemyCollision : MonoBehaviour
         bubble = GameObject.Find("Bubble").transform;
         spriteRendererEnemy = GetComponent<SpriteRenderer>();
         enemyCollider = GetComponent<Collider2D>();
-        isGameEnd = false;
         isJudoka = GetComponent<JudokaEnemyMovements>() ? true : false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !isGameEnd)
+        if (collision.gameObject.CompareTag("Player"))
         {
             player = collision.transform;
             swordSwipe = player.Find("SwordSwipe").transform;
@@ -54,7 +49,7 @@ public class EnemyCollision : MonoBehaviour
 
                 float dotProduct = Vector2.Dot(orientation, toPlayer);
 
-                if (dotProduct < 0)
+                if (dotProduct < -0.85f)
                 {
                     if (collision.gameObject.name == "Player")
                     {
@@ -93,7 +88,7 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bubble")
         {
-            StartCoroutine(EndGame());
+            collision.gameObject.GetComponent<BubbleCollision>().EndGame();
         }
     }
 
@@ -121,36 +116,5 @@ public class EnemyCollision : MonoBehaviour
         GameData.usePowerups = true;
 
         Destroy(gameObject);
-    }
-
-    IEnumerator EndGame()
-    {
-        isGameEnd = true;
-
-        StopCoroutine(gameCoroutine);
-
-        GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone");
-        foreach (GameObject clone in clones)
-        {
-            if (clone == gameObject)
-            {
-                clone.GetComponent<SpriteRenderer>().enabled = false;
-                clone.GetComponent<Collider2D>().enabled = false;
-            }
-            else
-            {
-                Destroy(clone);
-            }
-        }
-
-        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
-        if (bestScore < GameData.score)
-        {
-            PlayerPrefs.SetInt("BestScore", GameData.score);
-        }
-
-        yield return new WaitForSeconds(3.0f);
-
-        SceneManager.LoadScene("MainMenu");
     }
 }

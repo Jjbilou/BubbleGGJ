@@ -24,6 +24,8 @@ public class SpawnEnemies : MonoBehaviour
         availableEnemies.Add(enemies[0]);
 
         gameCoroutine = StartCoroutine(SpawnEnemy());
+
+        GameObject.Find("Bubble").GetComponent<BubbleCollision>().gameCoroutine = gameCoroutine;
     }
 
     void Update()
@@ -56,12 +58,11 @@ public class SpawnEnemies : MonoBehaviour
                     Quaternion.identity
                 );
                 newEnemy.tag = "Clone";
-                newEnemy.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
             }
 
             yield return new WaitForSeconds(spawnInterval);
 
-            spawnInterval = Mathf.Max(spawnInterval - spawnInterval / 10, minSpawnInterval);
+            spawnInterval = Mathf.Max(spawnInterval - 0.3f, minSpawnInterval);
         }
     }
 }

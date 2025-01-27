@@ -4,16 +4,18 @@ public class BubbleAnimation : MonoBehaviour
 {
     float defaultScaleX;
     float defaultScaleY;
+    int frameCount;
 
     void Start()
     {
         defaultScaleX = transform.localScale.x;
         defaultScaleY = transform.localScale.y;
+        frameCount = 0;
     }
 
     void FixedUpdate()
     {
-        transform.localScale = (Time.frameCount % 60) switch
+        transform.localScale = (frameCount % 60) switch
         {
             0 => new Vector3(defaultScaleX, defaultScaleY, 1.0f),
             3 => new Vector3(defaultScaleX, defaultScaleY * 1.02f, 1.0f),
@@ -37,5 +39,7 @@ public class BubbleAnimation : MonoBehaviour
             57 => new Vector3(defaultScaleX, defaultScaleY * 0.98f, 1.0f),
             _ => transform.localScale,
         };
+
+        frameCount++;
     }
 }

@@ -39,6 +39,11 @@ public class JudokaEnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+        
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;

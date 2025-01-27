@@ -47,6 +47,11 @@ public class TeleportingEnemyMovements : MonoBehaviour
     {
         Animate();
         Move();
+        
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;

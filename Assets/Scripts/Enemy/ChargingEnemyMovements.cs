@@ -47,6 +47,11 @@ public class ChargingEnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+        
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;

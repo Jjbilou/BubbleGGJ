@@ -6,9 +6,7 @@ public class ChangeSeason : MonoBehaviour
 {
     [SerializeField]
     Sprite[] tileSprites;
-
-    [SerializeField]
-    float seasonDuration = 60.0f;
+    float seasonDuration = 45.0f;
 
     SpriteRenderer[] spriteRenderers;
     int nbTilesBySeason;

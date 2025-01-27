@@ -22,20 +22,24 @@ public class HidingEnemyMovement : MonoBehaviour
     Rigidbody2D enemy;
     Slow slow;
     GameObject player;
+    bool isDuo;
     SpriteRenderer spriteRenderer;
 
     bool isWaiting;
     bool isWalking;
+    float showingDistance;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        isDuo = GameObject.Find("Player2") ? true : false;
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         isWaiting = false;
         isWalking = false;
+        showingDistance = isDuo ? 5.0f : 4.0f;
 
         slow = player.GetComponent<Slow>();
     }
@@ -45,6 +49,11 @@ public class HidingEnemyMovement : MonoBehaviour
     {
         Move();
         Animate();
+        
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;
@@ -78,7 +87,7 @@ public class HidingEnemyMovement : MonoBehaviour
 
         if (!isWaiting)
         {
-            if (!isWalking && Vector2.Distance(transform.position, target.position) <= 4.0f)
+            if (!isWalking && Vector2.Distance(transform.position, target.position) <= showingDistance)
             {
                 isWaiting = true;
                 StartCoroutine(WaitAndShow());

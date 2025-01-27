@@ -38,6 +38,10 @@ public class EnemyMovements : MonoBehaviour
     {
         Move();
         Animate();
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;

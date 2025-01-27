@@ -26,7 +26,6 @@ public class ShooterEnemyMovements : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Slow slow;
     bool isShooting;
-    Coroutine gameCoroutine;
 
     void Start()
     {
@@ -34,7 +33,6 @@ public class ShooterEnemyMovements : MonoBehaviour
         target = GameObject.Find("Bubble").transform;
         enemy = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        gameCoroutine = GetComponent<EnemyCollision>().gameCoroutine;
 
         isShooting = false;
 
@@ -45,6 +43,11 @@ public class ShooterEnemyMovements : MonoBehaviour
     {
         Animate();
         Move();
+        
+    }
+
+    void LateUpdate()
+    {
         if (slow.isSlow)
         {
             speed /= 2;
@@ -75,15 +78,14 @@ public class ShooterEnemyMovements : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
-
             GameObject newBullet = (GameObject)Instantiate(
                 bullet,
                 transform.position,
                 Quaternion.identity
             );
             newBullet.tag = "Clone";
-            newBullet.GetComponent<EnemyCollision>().gameCoroutine = gameCoroutine;
+
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
